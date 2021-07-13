@@ -1,11 +1,16 @@
 <RCC>
     <qresource prefix="/new/prefix1">
         <file>images/p1.jpg</file>
-        <file>images/p2.jpg</file>
         <file>images/p3.ico</file>
         <file>images/p4.gif</file>
         <file>images/p5.jpg</file>
         <file>images/p6.jpg</file>
         <file>images/p7.png</file>
+        <file>images/p9.png</file>
+        <file>images/p10.png</file>
+        <file>images/p11.png</file>
+        <file>images/p2.png</file>
+        <file>images/p12.png</file>
+        <file>images/p13.png</file>
     </qresource>
 </RCC>
