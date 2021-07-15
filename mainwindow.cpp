@@ -30,7 +30,7 @@ MainWindow::MainWindow(QWidget *parent) :
     //Подключаем базу данных
     QSqlDatabase db;
     db = QSqlDatabase::addDatabase("QSQLITE");
-    db.setDatabaseName("E:/Qt/build-03-Desktop_Qt_5_12_0_MinGW_64_bit-Debug/lite2.db");
+    db.setDatabaseName("lite2.db");
     db.open();
 
     //Осуществляем запрос
@@ -214,6 +214,39 @@ void MainWindow::on_comboBox_2_currentIndexChanged(int index)
         //Осуществляем запрос
         QSqlQuery query;
         query.exec(" SELECT id,№,ФИО FROM lite2 WHERE № = 2 ");
+
+       while (query.next())
+        {
+        QString grup = query.value(2).toString();
+          ui->comboBox_3->addItem(grup+"\n");}}
+        break;
+    case 2:{
+        ui->comboBox_3->clear();
+        //Осуществляем запрос
+        QSqlQuery query;
+        query.exec(" SELECT id,№,ФИО FROM lite2 WHERE № = 3 ");
+
+       while (query.next())
+        {
+        QString grup = query.value(2).toString();
+          ui->comboBox_3->addItem(grup+"\n");}}
+        break;
+    case 3:{
+        ui->comboBox_3->clear();
+        //Осуществляем запрос
+        QSqlQuery query;
+        query.exec(" SELECT id,№,ФИО FROM lite2 WHERE № = 4 ");
+
+       while (query.next())
+        {
+        QString grup = query.value(2).toString();
+          ui->comboBox_3->addItem(grup+"\n");}}
+        break;
+    case 4:{
+        ui->comboBox_3->clear();
+        //Осуществляем запрос
+        QSqlQuery query;
+        query.exec(" SELECT id,№,ФИО FROM lite2 WHERE № = 5 ");
 
        while (query.next())
         {
