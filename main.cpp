@@ -4,6 +4,9 @@
 #include <QWidget>
 #include <QDate>
 
+#include "QtSql/QSqlDatabase"
+#include "QSqlQuery"
+
 
 int main(int argc, char *argv[])
 {

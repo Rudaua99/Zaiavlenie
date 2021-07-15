@@ -5,6 +5,9 @@
 #include <QWidget>
 #include <QDate>
 
+#include "QtSql/QSqlDatabase"
+#include "QSqlQuery"
+
 namespace Ui {
 class MainWindow;
 }
@@ -36,6 +39,10 @@ private slots:
     void on_comboBox_8_currentIndexChanged(int index);
 
     void on_comboBox_9_currentIndexChanged(int index);
+
+
+
+    void on_comboBox_2_currentIndexChanged(int index);
 
 private:
     Ui::MainWindow *ui;
