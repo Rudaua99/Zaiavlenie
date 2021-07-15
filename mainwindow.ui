@@ -47,34 +47,11 @@ p, li { white-space: pre-wrap; }
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
-    <property name="geometry">
-     <rect>
-      <x>510</x>
-      <y>90</y>
-      <width>161</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Times New Roman</family>
-      <pointsize>12</pointsize>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">
-border-image: url(:/new/prefix1/images/p12.png);</string>
-    </property>
-    <property name="text">
-     <string>Сгенерировать</string>
-    </property>
-   </widget>
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>-350</x>
-      <y>-100</y>
+      <x>-200</x>
+      <y>-40</y>
       <width>1841</width>
       <height>871</height>
      </rect>
@@ -97,8 +74,8 @@ border-image: url(:/new/prefix1/images/p12.png);</string>
    <widget class="QComboBox" name="comboBox">
     <property name="geometry">
      <rect>
-      <x>880</x>
-      <y>50</y>
+      <x>100</x>
+      <y>40</y>
       <width>131</width>
       <height>22</height>
      </rect>
@@ -143,8 +120,8 @@ border-image: url(:/new/prefix1/images/p12.png);</string>
    <widget class="QComboBox" name="comboBox_2">
     <property name="geometry">
      <rect>
-      <x>850</x>
-      <y>120</y>
+      <x>50</x>
+      <y>100</y>
       <width>221</width>
       <height>22</height>
      </rect>
@@ -159,8 +136,8 @@ border-image: url(:/new/prefix1/images/p12.png);</string>
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>800</x>
-      <y>10</y>
+      <x>20</x>
+      <y>0</y>
       <width>291</width>
       <height>41</height>
      </rect>
@@ -181,8 +158,8 @@ border-image: url(:/new/prefix1/images/p12.png);</string>
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
-      <x>810</x>
-      <y>80</y>
+      <x>20</x>
+      <y>60</y>
       <width>291</width>
       <height>41</height>
      </rect>
@@ -203,8 +180,8 @@ border-image: url(:/new/prefix1/images/p12.png);</string>
    <widget class="QLabel" name="label_4">
     <property name="geometry">
      <rect>
-      <x>1150</x>
-      <y>10</y>
+      <x>350</x>
+      <y>0</y>
       <width>291</width>
       <height>41</height>
      </rect>
@@ -225,8 +202,8 @@ border-image: url(:/new/prefix1/images/p12.png);</string>
    <widget class="QComboBox" name="comboBox_3">
     <property name="geometry">
      <rect>
-      <x>1140</x>
-      <y>50</y>
+      <x>340</x>
+      <y>40</y>
       <width>311</width>
       <height>22</height>
      </rect>
@@ -241,8 +218,8 @@ border-image: url(:/new/prefix1/images/p12.png);</string>
    <widget class="QCalendarWidget" name="calendarWidget">
     <property name="geometry">
      <rect>
-      <x>1140</x>
-      <y>130</y>
+      <x>340</x>
+      <y>100</y>
       <width>321</width>
       <height>181</height>
      </rect>
@@ -254,8 +231,8 @@ border-image: url(:/new/prefix1/images/p12.png);</string>
    <widget class="QLabel" name="label_5">
     <property name="geometry">
      <rect>
-      <x>1150</x>
-      <y>80</y>
+      <x>350</x>
+      <y>60</y>
       <width>291</width>
       <height>41</height>
      </rect>
@@ -276,8 +253,8 @@ border-image: url(:/new/prefix1/images/p12.png);</string>
    <widget class="QLabel" name="label_6">
     <property name="geometry">
      <rect>
-      <x>60</x>
-      <y>10</y>
+      <x>770</x>
+      <y>0</y>
       <width>251</width>
       <height>41</height>
      </rect>
@@ -300,8 +277,8 @@ border-image: url(:/new/prefix1/images/p12.png);</string>
    <widget class="QLabel" name="label_7">
     <property name="geometry">
      <rect>
-      <x>460</x>
-      <y>10</y>
+      <x>1150</x>
+      <y>0</y>
       <width>251</width>
       <height>41</height>
      </rect>
@@ -321,12 +298,312 @@ border-image: url(:/new/prefix1/images/p12.png);</string>
      <string>       Заведующей кафедры</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_8">
+   <widget class="QStackedWidget" name="stackedWidget">
     <property name="geometry">
      <rect>
-      <x>430</x>
-      <y>50</y>
-      <width>321</width>
+      <x>730</x>
+      <y>100</y>
+      <width>361</width>
+      <height>191</height>
+     </rect>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <widget class="QWidget" name="page">
+     <widget class="QPushButton" name="pushButton_4">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>50</y>
+        <width>151</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Times New Roman</family>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">
+border-image: url(:/new/prefix1/images/p10.png);</string>
+      </property>
+      <property name="text">
+       <string>Сгенерировать </string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_12">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>0</y>
+        <width>321</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Times New Roman</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-image: url(:/new/prefix1/images/p11.png);</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Заявления на академ.отпуск :&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_4">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>30</y>
+        <width>331</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Times New Roman</family>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <item>
+       <property name="text">
+        <string>в связи с призывом на службу в Вооруженные Силы ПМР</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>по медицинским показаниям </string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>по семейным обстоятельствам  </string>
+       </property>
+      </item>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="page_2">
+     <widget class="QLabel" name="label_13">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>0</y>
+        <width>321</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Times New Roman</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-image: url(:/new/prefix1/images/p11.png);</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Заявление после академ.отпуска &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_5">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>50</y>
+        <width>151</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Times New Roman</family>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">
+border-image: url(:/new/prefix1/images/p10.png);</string>
+      </property>
+      <property name="text">
+       <string>Сгенерировать </string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="page_3">
+     <widget class="QLabel" name="label_14">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>0</y>
+        <width>321</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Times New Roman</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-image: url(:/new/prefix1/images/p11.png);</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Заявления об отчислении : &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_6">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>30</y>
+        <width>311</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Times New Roman</family>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <item>
+       <property name="text">
+        <string>по собственному желанию</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>в связи с переводом в другое заведение</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QPushButton" name="pushButton_6">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>50</y>
+        <width>151</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Times New Roman</family>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">
+border-image: url(:/new/prefix1/images/p10.png);</string>
+      </property>
+      <property name="text">
+       <string>Сгенерировать </string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="page_4">
+     <widget class="QLabel" name="label_15">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>0</y>
+        <width>321</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Times New Roman</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-image: url(:/new/prefix1/images/p11.png);</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Заявления о переводе : &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_7">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>30</y>
+        <width>301</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Times New Roman</family>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <item>
+       <property name="text">
+        <string>в связи с успешным прохождением конкурса</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>в другую группу с сохранением стипендии</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QPushButton" name="pushButton_7">
+      <property name="geometry">
+       <rect>
+        <x>100</x>
+        <y>50</y>
+        <width>151</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Times New Roman</family>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">
+border-image: url(:/new/prefix1/images/p10.png);</string>
+      </property>
+      <property name="text">
+       <string>Сгенерировать </string>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QComboBox" name="comboBox_8">
+    <property name="geometry">
+     <rect>
+      <x>750</x>
+      <y>80</y>
+      <width>291</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Times New Roman</family>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_9">
+    <property name="geometry">
+     <rect>
+      <x>750</x>
+      <y>40</y>
+      <width>291</width>
       <height>41</height>
      </rect>
     </property>
@@ -337,63 +614,151 @@ border-image: url(:/new/prefix1/images/p12.png);</string>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image: url(:/new/prefix1/images/p11.png);</string>
+     <string notr="true">border-image: url(:/new/prefix1/images/p6.jpg);</string>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Заявления по причине отсутствия :&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>          Выберите тип заявления</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_11">
+   <widget class="QStackedWidget" name="stackedWidget_2">
     <property name="geometry">
      <rect>
-      <x>430</x>
-      <y>130</y>
-      <width>321</width>
-      <height>41</height>
+      <x>1110</x>
+      <y>100</y>
+      <width>361</width>
+      <height>191</height>
      </rect>
     </property>
-    <property name="font">
-     <font>
-      <family>Times New Roman</family>
-      <pointsize>14</pointsize>
-     </font>
+    <property name="currentIndex">
+     <number>1</number>
     </property>
-    <property name="styleSheet">
-     <string notr="true">border-image: url(:/new/prefix1/images/p11.png);</string>
-    </property>
-    <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Заявление на прохождение практики&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_3">
-    <property name="geometry">
-     <rect>
-      <x>510</x>
-      <y>150</y>
-      <width>161</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Times New Roman</family>
-      <pointsize>12</pointsize>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">
+    <widget class="QWidget" name="page_5">
+     <widget class="QLabel" name="label_8">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>0</y>
+        <width>321</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Times New Roman</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-image: url(:/new/prefix1/images/p11.png);</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Заявления по причине отсутствия :&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_5">
+      <property name="geometry">
+       <rect>
+        <x>60</x>
+        <y>30</y>
+        <width>221</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Times New Roman</family>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <item>
+       <property name="text">
+        <string>посещением  поликлиники</string>
+       </property>
+      </item>
+      <item>
+       <property name="text">
+        <string>отъездом</string>
+       </property>
+      </item>
+     </widget>
+     <widget class="QPushButton" name="pushButton">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>50</y>
+        <width>161</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Times New Roman</family>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">
 border-image: url(:/new/prefix1/images/p12.png);</string>
-    </property>
-    <property name="text">
-     <string>Сгенерировать </string>
-    </property>
+      </property>
+      <property name="text">
+       <string>Сгенерировать</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="page_6">
+     <widget class="QLabel" name="label_11">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>0</y>
+        <width>321</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Times New Roman</family>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-image: url(:/new/prefix1/images/p11.png);</string>
+      </property>
+      <property name="text">
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Заявление на прохождение практики&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_3">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>50</y>
+        <width>161</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>Times New Roman</family>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">
+border-image: url(:/new/prefix1/images/p12.png);</string>
+      </property>
+      <property name="text">
+       <string>Сгенерировать </string>
+      </property>
+     </widget>
+    </widget>
    </widget>
-   <widget class="QLabel" name="label_12">
+   <widget class="QLabel" name="label_10">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>50</y>
-      <width>321</width>
+      <x>1130</x>
+      <y>40</y>
+      <width>291</width>
       <height>41</height>
      </rect>
     </property>
@@ -404,164 +769,17 @@ border-image: url(:/new/prefix1/images/p12.png);</string>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image: url(:/new/prefix1/images/p11.png);</string>
+     <string notr="true">border-image: url(:/new/prefix1/images/p6.jpg);</string>
     </property>
     <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Заявления на академ.отпуск :&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     <string>          Выберите тип заявления</string>
     </property>
    </widget>
-   <widget class="QComboBox" name="comboBox_4">
+   <widget class="QComboBox" name="comboBox_9">
     <property name="geometry">
      <rect>
-      <x>20</x>
+      <x>1120</x>
       <y>80</y>
-      <width>331</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Times New Roman</family>
-      <pointsize>12</pointsize>
-     </font>
-    </property>
-    <item>
-     <property name="text">
-      <string>в связи с призывом на службу в Вооруженные Силы ПМР</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>по медицинским показаниям </string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>по семейным обстоятельствам  </string>
-     </property>
-    </item>
-   </widget>
-   <widget class="QPushButton" name="pushButton_4">
-    <property name="geometry">
-     <rect>
-      <x>100</x>
-      <y>90</y>
-      <width>151</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Times New Roman</family>
-      <pointsize>12</pointsize>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">
-border-image: url(:/new/prefix1/images/p10.png);</string>
-    </property>
-    <property name="text">
-     <string>Сгенерировать </string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_13">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>130</y>
-      <width>321</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Times New Roman</family>
-      <pointsize>14</pointsize>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">border-image: url(:/new/prefix1/images/p11.png);</string>
-    </property>
-    <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Заявление после академ.отпуска &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_5">
-    <property name="geometry">
-     <rect>
-      <x>100</x>
-      <y>150</y>
-      <width>151</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Times New Roman</family>
-      <pointsize>12</pointsize>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">
-border-image: url(:/new/prefix1/images/p10.png);</string>
-    </property>
-    <property name="text">
-     <string>Сгенерировать </string>
-    </property>
-   </widget>
-   <widget class="QComboBox" name="comboBox_5">
-    <property name="geometry">
-     <rect>
-      <x>480</x>
-      <y>80</y>
-      <width>221</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Times New Roman</family>
-      <pointsize>12</pointsize>
-     </font>
-    </property>
-    <item>
-     <property name="text">
-      <string>посещением  поликлиники</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>отъездом</string>
-     </property>
-    </item>
-   </widget>
-   <widget class="QLabel" name="label_14">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>190</y>
-      <width>321</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Times New Roman</family>
-      <pointsize>14</pointsize>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">border-image: url(:/new/prefix1/images/p11.png);</string>
-    </property>
-    <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Заявления об отчислении : &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-    </property>
-   </widget>
-   <widget class="QComboBox" name="comboBox_6">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>220</y>
       <width>311</width>
       <height>22</height>
      </rect>
@@ -569,116 +787,11 @@ border-image: url(:/new/prefix1/images/p10.png);</string>
     <property name="font">
      <font>
       <family>Times New Roman</family>
-      <pointsize>12</pointsize>
-     </font>
-    </property>
-    <item>
-     <property name="text">
-      <string>по собственному желанию</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>в связи с переводом в другое заведение</string>
-     </property>
-    </item>
-   </widget>
-   <widget class="QPushButton" name="pushButton_6">
-    <property name="geometry">
-     <rect>
-      <x>100</x>
-      <y>230</y>
-      <width>151</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Times New Roman</family>
-      <pointsize>12</pointsize>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">
-border-image: url(:/new/prefix1/images/p10.png);</string>
-    </property>
-    <property name="text">
-     <string>Сгенерировать </string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_15">
-    <property name="geometry">
-     <rect>
-      <x>350</x>
-      <y>190</y>
-      <width>321</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Times New Roman</family>
       <pointsize>14</pointsize>
      </font>
     </property>
-    <property name="styleSheet">
-     <string notr="true">border-image: url(:/new/prefix1/images/p11.png);</string>
-    </property>
-    <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Заявления о переводе : &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-    </property>
-   </widget>
-   <widget class="QComboBox" name="comboBox_7">
-    <property name="geometry">
-     <rect>
-      <x>360</x>
-      <y>220</y>
-      <width>301</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Times New Roman</family>
-      <pointsize>12</pointsize>
-     </font>
-    </property>
-    <item>
-     <property name="text">
-      <string>в связи с успешным прохождением конкурса</string>
-     </property>
-    </item>
-    <item>
-     <property name="text">
-      <string>в другую группу с сохранением стипендии</string>
-     </property>
-    </item>
-   </widget>
-   <widget class="QPushButton" name="pushButton_7">
-    <property name="geometry">
-     <rect>
-      <x>430</x>
-      <y>230</y>
-      <width>151</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Times New Roman</family>
-      <pointsize>12</pointsize>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">
-border-image: url(:/new/prefix1/images/p10.png);</string>
-    </property>
-    <property name="text">
-     <string>Сгенерировать </string>
-    </property>
    </widget>
    <zorder>label</zorder>
-   <zorder>pushButton</zorder>
    <zorder>textEdit</zorder>
    <zorder>comboBox</zorder>
    <zorder>comboBox_2</zorder>
@@ -690,21 +803,12 @@ border-image: url(:/new/prefix1/images/p10.png);</string>
    <zorder>label_5</zorder>
    <zorder>label_6</zorder>
    <zorder>label_7</zorder>
-   <zorder>label_8</zorder>
-   <zorder>label_11</zorder>
-   <zorder>pushButton_3</zorder>
-   <zorder>label_12</zorder>
-   <zorder>comboBox_4</zorder>
-   <zorder>pushButton_4</zorder>
-   <zorder>label_13</zorder>
-   <zorder>pushButton_5</zorder>
-   <zorder>comboBox_5</zorder>
-   <zorder>label_14</zorder>
-   <zorder>comboBox_6</zorder>
-   <zorder>pushButton_6</zorder>
-   <zorder>label_15</zorder>
-   <zorder>comboBox_7</zorder>
-   <zorder>pushButton_7</zorder>
+   <zorder>stackedWidget</zorder>
+   <zorder>comboBox_8</zorder>
+   <zorder>label_9</zorder>
+   <zorder>stackedWidget_2</zorder>
+   <zorder>label_10</zorder>
+   <zorder>comboBox_9</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">

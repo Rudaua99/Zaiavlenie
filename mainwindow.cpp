@@ -3,6 +3,10 @@
 #include <string>
 #include <QTextEdit>
 #include <QWidget>
+#include <QFile>
+#include <QDebug>
+#include <QByteArray>
+#include <QString>
 
 
 
@@ -21,6 +25,18 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->comboBox_3->addItem({ "Рудая Виктория Витальевна"});
     ui->comboBox_3->addItem({ "Савчинский Егор Федорович"});
     ui->comboBox_3->addItem({ "Христодулиди Максим Андреевич"});
+
+    ui->comboBox_8->addItem( tr("Заявления на академ.отпуск"), QVariant(0) );
+    ui->comboBox_8->addItem( tr("Заявления после академ.отпуск"), QVariant(1) );
+    ui->comboBox_8->addItem( tr("Заявления об отчислении"), QVariant(2) );
+    ui->comboBox_8->addItem( tr("Заявления о переводе"), QVariant(3) );
+
+    ui->comboBox_9->addItem( tr("Заявления по причине отсутствия"), QVariant(0) );
+    ui->comboBox_9->addItem( tr("Заявление на прохождение практики"), QVariant(1) );
+
+
+
+
    }
 
 MainWindow::~MainWindow()
@@ -40,69 +56,14 @@ void MainWindow::on_pushButton_clicked()
   QDate date= ui->calendarWidget->selectedDate();
   QString date1 =date.toString("dd.MM.yyyy");
 
-
-
-  QString text4=QString(R"--(<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">
-                        <html><head><meta name="qrichtext" content="1" /><style type="text/css">
-                        p, li { white-space: pre-wrap; }
-                        </style></head><body style=" font-family:'Times New Roman'; font-size:14pt; font-weight:400; font-style:normal;">
-                        <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">                                                                                                              <span style=" font-family:'Times New Roman,serif';">Зав. кафедрой информатики</span>                                                                                                                         </p>
-                        <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Times New Roman,serif';">                                                                                                              и программной инженерии, </span>                                                                                                                        </p>
-                        <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Times New Roman,serif';">                                                                                                              доценту, канд. экон. наук </span></p>
-                        <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Times New Roman,serif';">                                                                                                              Тягульской Людмиле Анатольевне</span>                                                                                                                         </p>
-                        <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Times New Roman,serif';">                                                                                                              студента %1  курса %2 группы</span>                                                                                                                         </p>
-                        <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Times New Roman,serif';">                                                                                                              профиля Информатики и программной инженерии </span>                                                                                                                         </p>
-                        <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Times New Roman,serif';">                                                                                                              %3 </span>                                                                                                                         </p>
-                        <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Times New Roman,serif';"> </span>                                                                                                                        </p>
-                        <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Times New Roman,serif';"> </span>                                                                                                                         </p>
-                        <p style=" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Times New Roman,serif';"> </span>                                                                                                                         </p>
-                        <p align="justify" style=" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Times New Roman,serif'; font-weight:600;">                                                                                    ЗАЯВЛЕНИЕ</span>                                                                                                                         </p>
-                        <p style=" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">       Прошу Вашего разрешения отсутствовать на занятиях %4 , в связи с %5 <span style=" font-family:'Times New Roman,serif';">. </span>                                                                                                </p>
-                        <p style=" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">                                                                                                </p>
-                        <p style=" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Times New Roman,serif';">      Дата  %6                                                                                         Подпись_____</span></p></body></html>)--").arg(text).arg(text2).arg(text3).arg( date1).arg(text5).arg( QDate::currentDate().toString("dd.MM.yyyy"));
-
-
-ui->textEdit->setHtml(text4);
-}
-
-
-
-
-
-
-
-
-void MainWindow::on_pushButton_2_clicked()
-{
-//    //Комбобоксы
-    QString text = ui->comboBox->currentText();
-    QString text2 = ui->comboBox_2->currentText();
-    QString text3 = ui->comboBox_3->currentText();
-    //Календарь
-    QDate date= ui->calendarWidget->selectedDate();
-    QString date1 =date.toString("dd.MM.yyyy");
-
-
-  QString text5=QString(R"--(<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">
-                        <html><head><meta name="qrichtext" content="1" /><style type="text/css">
-                        p, li { white-space: pre-wrap; }
-                        </style></head><body style=" font-family:'Times New Roman'; font-size:14pt; font-weight:400; font-style:normal;">
-                        <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">                                                                                                              <span style=" font-family:'Times New Roman,serif';">Зав. кафедрой информатики</span>                                                 </p>
-                        <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Times New Roman,serif';">                                                                                                              и программной инженерии, </span>                                                </p>
-                        <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Times New Roman,serif';">                                                                                                              доценту, канд. экон. наук Тягульской Л.А.</span>                                                 </p>
-                        <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Times New Roman,serif';">                                                                                                              студента %1  курса</span>                                                 </p>
-                        <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Times New Roman,serif';">                                                                                                              направления Программная инженерия</span>                                                 </p>
-                        <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Times New Roman,serif';">                                                                                                              профиля Информатики и программной инженерии </span>                                                 </p>
-                        <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Times New Roman,serif';">                                                                                                              %2 </span>                                                 </p>
-                        <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Times New Roman,serif';"> </span>                                                </p>
-                        <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Times New Roman,serif';"> </span>                                                 </p>
-                        <p style=" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Times New Roman,serif';"> </span>                                                 </p>
-                        <p align="center" style=" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Times New Roman,serif'; font-weight:600;">ЗАЯВЛЕНИЕ</span>                                                 </p>
-                        <p style=" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">       Прошу Вашего разрешения отсутствовать на занятиях %3 , в связи с отъездом<span style=" font-family:'Times New Roman,serif';">. </span>                        </p>
-                        <p style=" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">                        </p>
-                        <p style=" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Times New Roman,serif';">       Дата  %4                                                                                                                    Подпись_____</span></p></body></html>)--").arg(text).arg(text3).arg( date1).arg( QDate::currentDate().toString("dd.MM.yyyy"));
-
-  ui->textEdit->setHtml(text5);
+//Загрузка из файла
+  QFile file("file.txt"); // создаем объект класса QFile
+      QByteArray data2; // Создаем объект класса QByteArray, куда мы будем считывать данные
+      if (!file.open(QIODevice::ReadOnly)) // Проверяем, возможно ли открыть наш файл для чтения
+          return; // если это сделать невозможно, то завершаем функцию
+      data2 = file.readAll(); //считываем все данные с файла в объект data
+      QString text4=QString(data2).arg(text).arg(text2).arg(text3).arg( date1).arg(text5).arg( QDate::currentDate().toString("dd.MM.yyyy"));;
+      ui->textEdit->setHtml(text4);
 }
 
 void MainWindow::on_pushButton_3_clicked()
@@ -116,26 +77,14 @@ void MainWindow::on_pushButton_3_clicked()
     QString date1 =date.toString("dd.MM.yyyy");
 
 
-  QString text5=QString(R"--(<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">
-                        <html><head><meta name="qrichtext" content="1" /><style type="text/css">
-                        p, li { white-space: pre-wrap; }
-                        </style></head><body style=" font-family:'Times New Roman'; font-size:14pt; font-weight:400; font-style:normal;">
-                        <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">                                                                                                              <span style=" font-family:'Times New Roman,serif';">Зав. кафедрой информатики</span>                                                                                                 </p>
-                        <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Times New Roman,serif';">                                                                                                              и программной инженерии, </span>                                                                                                </p>
-                        <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Times New Roman,serif';">                                                                                                              доценту, канд. экон. наук </span></p>
-                        <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Times New Roman,serif';">                                                                                                              Тягульской Людмиле Анатольевне</span>                                                                                                 </p>
-                        <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Times New Roman,serif';">                                                                                                              студента %1  курса  %2 группы</span>                                                                                               </p>
-                        <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Times New Roman,serif';">                                                                                                              профиля Информатики и программной инженерии </span>                                                                                                 </p>
-                        <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Times New Roman,serif';">                                                                                                              %3 </span>                                                                                                 </p>
-                        <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Times New Roman,serif';"> </span>                                                                                                </p>
-                        <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Times New Roman,serif';"> </span>                                                                                                 </p>
-                        <p style=" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Times New Roman,serif';"> </span>                                                                                                 </p>
-                        <p align="justify" style=" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Times New Roman,serif'; font-weight:600;">                                                                                       ЗАЯВЛЕНИЕ</span>                                                                                                 </p>
-                        <p style=" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">       <span style=" font-family:'Times New Roman,serif';">Прошу направить меня для прохождения</span><span style=" font-family:'Times New Roman,serif'; font-size:12pt;"> </span> практики с %4 .                                                                       </p>
-                        <p style=" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">                                                                        </p>
-                        <p style=" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Times New Roman,serif';">       Дата  %5                                                                                                                    Подпись_____</span></p></body></html>)--").arg(text).arg(text2).arg(text3).arg( date1).arg( QDate::currentDate().toString("dd.MM.yyyy"));
-
-  ui->textEdit->setHtml(text5);
+    //Загрузка из файла
+      QFile file3("file3.txt"); // создаем объект класса QFile
+          QByteArray data2; // Создаем объект класса QByteArray, куда мы будем считывать данные
+          if (!file3.open(QIODevice::ReadOnly)) // Проверяем, возможно ли открыть наш файл для чтения
+              return; // если это сделать невозможно, то завершаем функцию
+          data2 = file3.readAll(); //считываем все данные с файла в объект data
+          QString text4=QString(data2).arg(text).arg(text2).arg(text3).arg( date1).arg( QDate::currentDate().toString("dd.MM.yyyy"));
+          ui->textEdit->setHtml(text4);
 
 }
 
@@ -150,29 +99,14 @@ void MainWindow::on_pushButton_4_clicked()
     QDate date= ui->calendarWidget->selectedDate();
     QString date1 =date.toString("dd.MM.yyyy");
 
-
-  QString text5=QString(R"--(<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">
-                        <html><head><meta name="qrichtext" content="1" /><style type="text/css">
-                        p, li { white-space: pre-wrap; }
-                        </style></head><body style=" font-family:'Times New Roman'; font-size:14pt; font-weight:400; font-style:normal;">
-                        <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">                                                                                                              Директору филиала<span style=" font-weight:600;"> </span>                                                                                                                                                                                 </p>
-                        <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">                                                                                                              Заведующему кафедрой                                                                        </p>
-                        <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">                                                                                                              прикладной информатики в экономике,                                                                        </p>
-                        <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">                                                                                                              профессору, канд. экон. наук                                                                        </p>
-                        <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">                                                                                                              Павлинову Игорю Алексеевичу                                                                        </p>
-                        <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Times New Roman,serif';">                                                                                                              студента %1  курса %2 группы</span>                                                                                                                                                                         </p>
-                        <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Times New Roman,serif';">                                                                                                              профиля Информатики и программной инженерии </span>                                                                                                                                                                         </p>
-                        <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Times New Roman,serif';">                                                                                                              %3</span>                        </p>
-                        <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Times New Roman,serif';"> </span>                                                                                                                                                                        </p>
-                        <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Times New Roman,serif';"> </span>                                                                                                                                                                         </p>
-                        <p style=" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Times New Roman,serif';"> </span>                                                                                                                                                                         </p>
-                        <p align="justify" style=" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Times New Roman,serif'; font-weight:600;">                                                                                       ЗАЯВЛЕНИЕ</span>                                                                                                                                                                         </p>
-                        <p style=" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">           <span style=" font-family:'Times New Roman,serif';">Прошу предоставить академический отпуск %4</span> с %5 .                                                                                                                                               </p>
-                        <p style=" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">                                                                                                                                                </p>
-                        <p style=" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Times New Roman,serif';">       Дата  %6                                                                                                                    Подпись_____</span></p></body></html>)--").arg(text).arg(text2).arg(text3).arg(text4).arg( date1).arg( QDate::currentDate().toString("dd.MM.yyyy"));
-
-  ui->textEdit->setHtml(text5);
-
+    //Загрузка из файла
+      QFile file4("file4.txt"); // создаем объект класса QFile
+          QByteArray data2; // Создаем объект класса QByteArray, куда мы будем считывать данные
+          if (!file4.open(QIODevice::ReadOnly)) // Проверяем, возможно ли открыть наш файл для чтения
+              return; // если это сделать невозможно, то завершаем функцию
+          data2 = file4.readAll(); //считываем все данные с файла в объект data
+          QString text5=QString(data2).arg(text).arg(text2).arg(text3).arg(text4).arg( date1).arg( QDate::currentDate().toString("dd.MM.yyyy"));
+          ui->textEdit->setHtml(text5);
 }
 
 void MainWindow::on_pushButton_5_clicked()
@@ -186,27 +120,14 @@ void MainWindow::on_pushButton_5_clicked()
     QString date1 =date.toString("dd.MM.yyyy");
 
 
-  QString text5=QString(R"--(<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">
-                        <html><head><meta name="qrichtext" content="1" /><style type="text/css">
-                        p, li { white-space: pre-wrap; }
-                        </style></head><body style=" font-family:'Times New Roman'; font-size:14pt; font-weight:400; font-style:normal;">
-                        <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">                                                                                                              Директору филиала<span style=" font-weight:600;"> </span>                                                                                                                                                                                 </p>
-                        <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">                                                                                                              Заведующему кафедрой                                                                        </p>
-                        <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">                                                                                                              прикладной информатики в экономике,                                                                        </p>
-                        <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">                                                                                                              профессору, канд. экон. наук                                                                        </p>
-                        <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">                                                                                                              Павлинову Игорю Алексеевичу                                                                        </p>
-                        <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Times New Roman,serif';">                                                                                                              студента %1  курса %2 группы</span>                                                                                                                                                                         </p>
-                        <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Times New Roman,serif';">                                                                                                              профиля Информатики и программной инженерии </span>                                                                                                                                                                         </p>
-                        <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Times New Roman,serif';">                                                                                                              %3 </span>                                                                                                                                                                         </p>
-                        <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Times New Roman,serif';"> </span>                                                                                                                                                                        </p>
-                        <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Times New Roman,serif';"> </span>                                                                                                                                                                         </p>
-                        <p style=" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Times New Roman,serif';"> </span>                                                                                                                                                                         </p>
-                        <p align="justify" style=" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Times New Roman,serif'; font-weight:600;">                                                                                  ЗАЯВЛЕНИЕ</span>                                                                                                                                                                         </p>
-                        <p style=" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">         Прошу считать приступившим к занятиям после академического отпуска на %1  курсе с %4 .                                                 </p>
-                        <p style=" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">                                                                                                                                                </p>
-                        <p style=" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Times New Roman,serif';">       Дата  %5                                                                                                                    Подпись_____</span></p></body></html>)--").arg(text).arg(text2).arg(text3).arg( date1).arg( QDate::currentDate().toString("dd.MM.yyyy"));
-
-  ui->textEdit->setHtml(text5);
+    //Загрузка из файла
+      QFile file5("file5.txt"); // создаем объект класса QFile
+          QByteArray data2; // Создаем объект класса QByteArray, куда мы будем считывать данные
+          if (!file5.open(QIODevice::ReadOnly)) // Проверяем, возможно ли открыть наш файл для чтения
+              return; // если это сделать невозможно, то завершаем функцию
+          data2 = file5.readAll(); //считываем все данные с файла в объект data
+          QString text5=QString(data2).arg(text).arg(text2).arg(text3).arg( date1).arg( QDate::currentDate().toString("dd.MM.yyyy"));
+          ui->textEdit->setHtml(text5);
 }
 
 void MainWindow::on_pushButton_6_clicked()
@@ -221,27 +142,14 @@ void MainWindow::on_pushButton_6_clicked()
     QString date1 =date.toString("dd.MM.yyyy");
 
 
-  QString text5=QString(R"--(<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">
-                        <html><head><meta name="qrichtext" content="1" /><style type="text/css">
-                        p, li { white-space: pre-wrap; }
-                        </style></head><body style=" font-family:'Times New Roman'; font-size:14pt; font-weight:400; font-style:normal;">
-                        <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">                                                                                                              Директору филиала<span style=" font-weight:600;"> </span>                                                                                                                                                                                                         </p>
-                        <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">                                                                                                              Заведующему кафедрой                                                                                                </p>
-                        <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">                                                                                                              прикладной информатики в экономике,                                                                                                </p>
-                        <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">                                                                                                              профессору, канд. экон. наук                                                                                                </p>
-                        <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">                                                                                                              Павлинову Игорю Алексеевичу                                                                                                </p>
-                        <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Times New Roman,serif';">                                                                                                              студента %1  курса %2 группы</span>                                                                                                                                                                                                 </p>
-                        <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Times New Roman,serif';">                                                                                                              профиля Информатики и программной инженерии </span>                                                                                                                                                                                                 </p>
-                        <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Times New Roman,serif';">                                                                                                              %3 </span>                                                                                                                                                                                                 </p>
-                        <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Times New Roman,serif';"> </span>                                                                                                                                                                                                </p>
-                        <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Times New Roman,serif';"> </span>                                                                                                                                                                                                 </p>
-                        <p style=" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Times New Roman,serif';"> </span>                                                                                                                                                                                                 </p>
-                        <p align="justify" style=" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Times New Roman,serif'; font-weight:600;">                                                                                  ЗАЯВЛЕНИЕ</span>                                                                                                                                                                                                 </p>
-                        <p style=" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">          <span style=" font-family:'Times New Roman,serif';">Прошу отчислить  %4</span> с %5 .                                                                         </p>
-                        <p style=" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">                                                                                                                                                                        </p>
-                        <p style=" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Times New Roman,serif';">       Дата  %6                                                                                                                    Подпись_____</span></p></body></html>)--").arg(text).arg(text2).arg(text3).arg(text4).arg( date1).arg( QDate::currentDate().toString("dd.MM.yyyy"));
-
-  ui->textEdit->setHtml(text5);
+    //Загрузка из файла
+      QFile file6("file6.txt"); // создаем объект класса QFile
+          QByteArray data2; // Создаем объект класса QByteArray, куда мы будем считывать данные
+          if (!file6.open(QIODevice::ReadOnly)) // Проверяем, возможно ли открыть наш файл для чтения
+              return; // если это сделать невозможно, то завершаем функцию
+          data2 = file6.readAll(); //считываем все данные с файла в объект data
+          QString text5=QString(data2).arg(text).arg(text2).arg(text3).arg(text4).arg( date1).arg( QDate::currentDate().toString("dd.MM.yyyy"));
+          ui->textEdit->setHtml(text5);
 }
 
 void MainWindow::on_pushButton_7_clicked()
@@ -256,25 +164,53 @@ void MainWindow::on_pushButton_7_clicked()
     QString date1 =date.toString("dd.MM.yyyy");
 
 
-  QString text5=QString(R"--(<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">
-                        <html><head><meta name="qrichtext" content="1" /><style type="text/css">
-                        p, li { white-space: pre-wrap; }
-                        </style></head><body style=" font-family:'Times New Roman'; font-size:14pt; font-weight:400; font-style:normal;">
-                        <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">                                                                                                              Директору филиала<span style=" font-weight:600;"> </span>                                                                                                                                                                                                                                 </p>
-                        <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">                                                                                                              Заведующему кафедрой                                                                                                                        </p>
-                        <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">                                                                                                              прикладной информатики в экономике,                                                                                                                        </p>
-                        <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">                                                                                                              профессору, канд. экон. наук                                                                                                                        </p>
-                        <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">                                                                                                              Павлинову Игорю Алексеевичу                                                                                                                        </p>
-                        <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Times New Roman,serif';">                                                                                                              студента %1  курса %2 группы</span>                                                                                                                                                                                                                         </p>
-                        <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Times New Roman,serif';">                                                                                                              профиля Информатики и программной инженерии </span>                                                                                                                                                                                                                         </p>
-                        <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Times New Roman,serif';">                                                                                                              %3 </span>                                                                                                                                                                                                                         </p>
-                        <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Times New Roman,serif';"> </span>                                                                                                                                                                                                                        </p>
-                        <p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Times New Roman,serif';"> </span>                                                                                                                                                                                                                         </p>
-                        <p style=" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Times New Roman,serif';"> </span>                                                                                                                                                                                                                         </p>
-                        <p align="justify" style=" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Times New Roman,serif'; font-weight:600;">                                                                                  ЗАЯВЛЕНИЕ</span>                                                                                                                                                                                                                         </p>
-                        <p style=" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">          <span style=" font-family:'Times New Roman,serif';">Прошу перевести меня на обучение за счет средств федерального бюджета</span><span style=" font-family:'Times New Roman,serif'; font-size:12pt;"> </span><span style=" font-family:'Times New Roman,serif';">  %4</span> с %5 .                                                                                                 </p>
-                        <p style=" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">                                                                                                                                                                                                </p>
-                        <p style=" margin-top:12px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;"><span style=" font-family:'Times New Roman,serif';">       Дата  %6                                                                                                                    Подпись_____</span></p></body></html>)--").arg(text).arg(text2).arg(text3).arg(text4).arg( date1).arg( QDate::currentDate().toString("dd.MM.yyyy"));
+    //Загрузка из файла
+      QFile file7("file7.txt"); // создаем объект класса QFile
+          QByteArray data2; // Создаем объект класса QByteArray, куда мы будем считывать данные
+          if (!file7.open(QIODevice::ReadOnly)) // Проверяем, возможно ли открыть наш файл для чтения
+              return; // если это сделать невозможно, то завершаем функцию
+          data2 = file7.readAll(); //считываем все данные с файла в объект data
+          QString text5=QString(data2).arg(text).arg(text2).arg(text3).arg(text4).arg( date1).arg( QDate::currentDate().toString("dd.MM.yyyy"));
+          ui->textEdit->setHtml(text5);
+}
 
-  ui->textEdit->setHtml(text5);
+
+
+
+
+void MainWindow::on_comboBox_8_currentIndexChanged(int index)
+{
+
+       switch (index) {
+        case 0:
+        ui->stackedWidget->setCurrentIndex(0);
+
+            break;
+        case 1:
+        ui->stackedWidget->setCurrentIndex(1);
+
+            break;
+        case 2:
+        ui->stackedWidget->setCurrentIndex(2);
+
+            break;
+        case 3:
+        ui->stackedWidget->setCurrentIndex(3);
+
+                break;
+        }
+}
+
+void MainWindow::on_comboBox_9_currentIndexChanged(int index)
+{
+    switch (index) {
+     case 0:
+     ui->stackedWidget_2->setCurrentIndex(0);
+
+         break;
+     case 1:
+     ui->stackedWidget_2->setCurrentIndex(1);
+
+         break;
+     }
 }
