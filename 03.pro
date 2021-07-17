@@ -6,6 +6,12 @@
 
 QT       += core gui sql
 
+QT     += axcontainer
+
+QT += widgets
+
+
+
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 TARGET = 03

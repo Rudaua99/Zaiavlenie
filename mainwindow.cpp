@@ -9,13 +9,33 @@
 #include <QString>
 #include "QtSql/QSqlDatabase"
 #include "QSqlQuery"
+#include <QAxObject>
+
+
+#include <QTextDocumentWriter>
+#include <QMessageBox>
+#include <QFileDialog>
+
+#include <QFont>
+
+#include <QTreeWidgetItem>
+
+
+
+
+
+
+
 
 
 
 MainWindow::MainWindow(QWidget *parent) :
+
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
+
+
     ui->setupUi(this);
 
     ui->comboBox_8->addItem( tr("Заявления на академ.отпуск"), QVariant(0) );
@@ -62,7 +82,7 @@ void MainWindow::on_pushButton_clicked()
   QDate date= ui->calendarWidget->selectedDate();
   QString date1 =date.toString("dd.MM.yyyy");
 
-//Загрузка из файла
+    //Загрузка из файла
   QFile file("file.txt"); // создаем объект класса QFile
       QByteArray data2; // Создаем объект класса QByteArray, куда мы будем считывать данные
       if (!file.open(QIODevice::ReadOnly)) // Проверяем, возможно ли открыть наш файл для чтения
@@ -81,7 +101,6 @@ void MainWindow::on_pushButton_3_clicked()
     //Календарь
     QDate date= ui->calendarWidget->selectedDate();
     QString date1 =date.toString("dd.MM.yyyy");
-
     //Загрузка из файла
       QFile file3("file3.txt"); // создаем объект класса QFile
           QByteArray data2; // Создаем объект класса QByteArray, куда мы будем считывать данные
@@ -103,7 +122,6 @@ void MainWindow::on_pushButton_4_clicked()
     //Календарь
     QDate date= ui->calendarWidget->selectedDate();
     QString date1 =date.toString("dd.MM.yyyy");
-
     //Загрузка из файла
       QFile file4("file4.txt"); // создаем объект класса QFile
           QByteArray data2; // Создаем объект класса QByteArray, куда мы будем считывать данные
@@ -123,8 +141,6 @@ void MainWindow::on_pushButton_5_clicked()
     //Календарь
     QDate date= ui->calendarWidget->selectedDate();
     QString date1 =date.toString("dd.MM.yyyy");
-
-
     //Загрузка из файла
       QFile file5("file5.txt"); // создаем объект класса QFile
           QByteArray data2; // Создаем объект класса QByteArray, куда мы будем считывать данные
@@ -145,8 +161,6 @@ void MainWindow::on_pushButton_6_clicked()
     //Календарь
     QDate date= ui->calendarWidget->selectedDate();
     QString date1 =date.toString("dd.MM.yyyy");
-
-
     //Загрузка из файла
       QFile file6("file6.txt"); // создаем объект класса QFile
           QByteArray data2; // Создаем объект класса QByteArray, куда мы будем считывать данные
@@ -167,7 +181,6 @@ void MainWindow::on_pushButton_7_clicked()
     //Календарь
     QDate date= ui->calendarWidget->selectedDate();
     QString date1 =date.toString("dd.MM.yyyy");
-
     //Загрузка из файла
       QFile file7("file7.txt"); // создаем объект класса QFile
           QByteArray data2; // Создаем объект класса QByteArray, куда мы будем считывать данные
@@ -177,9 +190,6 @@ void MainWindow::on_pushButton_7_clicked()
           QString text5=QString(data2).arg(text).arg(text2).arg(text3).arg(text4).arg( date1).arg( QDate::currentDate().toString("dd.MM.yyyy"));
           ui->textEdit->setHtml(text5);
 }
-
-
-
 
 
 void MainWindow::on_comboBox_8_currentIndexChanged(int index2)
@@ -254,4 +264,118 @@ void MainWindow::on_comboBox_2_currentIndexChanged(int index)
           ui->comboBox_3->addItem(grup+"\n");}}
         break;
     }
+}
+
+
+
+void MainWindow::on_pushButton_2_clicked()
+{
+    //    QAxObject* pword = new  QAxObject ( "Word.Application" );
+    //    QAxObject* pdoc = pword->querySubObject("Documents");
+    //    pdoc=pdoc->querySubObject("Add()");
+
+    //    QAxObject*prange=pdoc->querySubObject("Range()");
+
+
+
+    ////   ui->textEdit->document();
+
+    //    prange->dynamicCall("SetRange(text,text)",0,100);
+    //    prange->setProperty("Text","Print text range");
+
+    //    pword->setProperty("Visible",true);
+
+
+//    QAxObject* pword = new  QAxObject ( "Word.Application" );
+//        QAxObject* pdoc = pword->querySubObject("Documents");
+//        pdoc=pdoc->querySubObject("Add()");
+
+//         QString str=ui->textEdit->toPlainText();
+
+//     QAxObject*prange=pdoc->querySubObject("Range(QTextEdit)");
+//     prange->dynamicCall("SetRange=str)");
+
+
+
+
+
+     //prange->setProperty("Text","QTextEdit");
+
+         //pword->dynamicCall("Visible",true);
+    //QTextEdit text =ui->textEdit->setHtml(text5);
+
+
+
+
+
+//    QFile file("file.txt");
+//        file.open(QIODevice::WriteOnly);
+//        QTextStream out(&file);
+//        out << tEdit->toPlainText();
+//        file.close();
+
+//    QString fileName = QFileDialog::getSaveFileName(this, tr("Save File"),"/home/jana/untitled.png",tr("Images (*.png *.xpm *.jpg)"));
+//        if (fileName.isEmpty()) return;
+
+//        QTextDocumentWriter writer(fileName);
+
+//        bool success;
+//        success = writer.write(ui->textEdit->document());
+
+//        if (success)
+//        {
+//            QMessageBox::information(this, "Отлично!", "Экспорт прошел успешно");
+//        }
+//        else
+//        {
+//            QMessageBox::critical(this, "Ошибка", "При сохранении файла произошла ошибка");
+//        }
+
+
+
+
+
+
+
+        QByteArray imageData;
+        QString fileName = QFileDialog::getSaveFileName(this, tr("Save File"),
+                                   "/home/jana/Zaiavlenie.rtf",
+                                   tr("Images (*.rtf)"));
+            QFile file(fileName);
+
+            if (!file.open(QFile::WriteOnly | QFile::Text)) {
+                QMessageBox::warning(this, "Ошибка", "Файл не сохранён: " + file.errorString());
+                return;
+            }
+            //currentFile = fileName;
+
+
+            setWindowTitle(fileName);
+            QTextStream out(&file);
+
+
+
+
+
+            QString text = ui->textEdit->toPlainText();
+
+
+
+
+
+            // QString fn =ui->textEdit->setFont(QFont("Times new roman",14,QFont::Bold));
+
+         //  text->setProperty("Size", 14);
+           // text->setFont(QFont("Times new roman",14,QFont::Bold));
+
+            out << text;
+            file.close();
+
+
+}
+
+void MainWindow::on_textEdit_textChanged()
+{
+    //QString fn =ui->textEdit->setFont();
+     ui->textEdit->setFont(QFont("Times new roman",14,QFont::Bold));
 }

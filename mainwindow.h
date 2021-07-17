@@ -44,6 +44,10 @@ private slots:
 
     void on_comboBox_2_currentIndexChanged(int index);
 
+    void on_pushButton_2_clicked();
+
+    void on_textEdit_textChanged();
+
 private:
     Ui::MainWindow *ui;
 };

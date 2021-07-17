@@ -630,7 +630,7 @@ border-image: url(:/new/prefix1/images/p10.png);</string>
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="page_5">
      <widget class="QLabel" name="label_8">
@@ -709,7 +709,7 @@ border-image: url(:/new/prefix1/images/p12.png);</string>
      <widget class="QLabel" name="label_11">
       <property name="geometry">
        <rect>
-        <x>20</x>
+        <x>10</x>
         <y>0</y>
         <width>321</width>
         <height>41</height>
@@ -791,6 +791,19 @@ border-image: url(:/new/prefix1/images/p12.png);</string>
      </font>
     </property>
    </widget>
+   <widget class="QPushButton" name="pushButton_2">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>270</y>
+      <width>121</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Загрузить в Word</string>
+    </property>
+   </widget>
    <zorder>label</zorder>
    <zorder>textEdit</zorder>
    <zorder>comboBox</zorder>
@@ -809,6 +822,7 @@ border-image: url(:/new/prefix1/images/p12.png);</string>
    <zorder>stackedWidget_2</zorder>
    <zorder>label_10</zorder>
    <zorder>comboBox_9</zorder>
+   <zorder>pushButton_2</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
