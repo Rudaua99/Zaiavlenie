@@ -1,4 +1,4 @@
-#include "mainwindow.h"
+﻿#include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <string>
 #include <QTextEdit>
@@ -41,7 +41,10 @@
 #include <QFont>
 #include <QFontDialog>
 
-#include <QAbstractScrollArea>
+
+
+
+
 
 
 
@@ -93,7 +96,23 @@ MainWindow::MainWindow(QWidget *parent) :
     {
     QString grup = query.value(2).toString();
     ui->comboBox_2->addItem(grup+"\n");
-    }
+}
+
+
+
+
+
+     QSqlQuery quer;
+       quer.exec("SELECT grup,student FROM lite5");
+
+      while (quer.next())
+       {
+
+       QString grup = quer.value(0).toString();
+       QString student = quer.value(1).toString();
+       ui->comboBox_2->addItem(grup);
+       ui->comboBox_3->addItem(student);
+      }
 
    }
 
@@ -245,7 +264,7 @@ void MainWindow::on_comboBox_2_currentIndexChanged(int index)
         ui->comboBox_3->clear();
         //Осуществляем запрос
         QSqlQuery query;
-        query.exec(" SELECT id,№,ФИО FROM lite2 WHERE № = 1 ");
+        query.exec(" SELECT id,№,ФИО FROM lite2 WHERE № = 1  ");
 
        while (query.next())
         {
@@ -295,6 +314,18 @@ void MainWindow::on_comboBox_2_currentIndexChanged(int index)
         {
         QString grup = query.value(2).toString();
           ui->comboBox_3->addItem(grup+"\n");}}
+        break;
+
+    case 6:{
+        ui->comboBox_3->clear();
+        //Осуществляем запрос
+        QSqlQuery quer;
+          quer.exec("SELECT grup,student FROM lite5");
+
+         while (quer.next())
+          {
+           QString student = quer.value(1).toString();
+           ui->comboBox_3->addItem(student);}}
         break;
     }
 }
@@ -348,3 +379,34 @@ void MainWindow::on_pushButton_8_clicked()
 
 }
 
+
+
+
+void MainWindow::on_pushButton_10_clicked()
+{
+    QString grup=ui->lineEdit->text();
+    QString student=ui->lineEdit_2->text();
+
+    QSqlDatabase db;
+    db = QSqlDatabase::addDatabase("QSQLITE");
+    db.setDatabaseName("lite2.db");
+    db.open();
+
+    QSqlQuery query;
+    query.exec("INSERT INTO lite5 (grup,student) VALUES('"+grup+"','"+student+"')");
+    qDebug()<<"Query executed"<<endl;
+
+
+    QSqlQuery quer;
+      quer.exec("SELECT grup,student FROM lite5");
+
+     while (quer.next())
+      {
+
+
+      QString grup = quer.value(0).toString();
+      QString student = quer.value(1).toString();
+      ui->comboBox_2->addItem(grup);
+      ui->comboBox_3->addItem(student);
+     }
+}
