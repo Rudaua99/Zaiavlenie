@@ -5,29 +5,17 @@
 #include <QWidget>
 #include <QFile>
 #include <QDebug>
-#include <QByteArray>
+
 #include <QString>
 #include "QtSql/QSqlDatabase"
 #include "QSqlQuery"
-#include <QAxObject>
-
 
 #include <QTextDocumentWriter>
 #include <QMessageBox>
 #include <QFileDialog>
 
 #include <QFont>
-
-#include <QTreeWidgetItem>
-
-#include <QTextStream>
-
-
 #include <QTextDocument>
-#include <QTextBlock>
-#include <QTextCursor>
-
-
 
 #if defined(QT_PRINTSUPPORT_LIB)
 #include <QtPrintSupport/qtprintsupportglobal.h>
@@ -44,31 +32,12 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 MainWindow::MainWindow(QWidget *parent) :
 
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 
-
-
-
 {
-
-
     ui->setupUi(this);
 
     ui->comboBox_8->addItem( tr("Заявления на академ.отпуск"), QVariant(0) );
@@ -99,22 +68,18 @@ MainWindow::MainWindow(QWidget *parent) :
 }
 
 
+   //Запрос на БД в которую пользователь будет грузить данные
+   QSqlQuery quer;
+     quer.exec("SELECT grup FROM lite5");
 
+    while (quer.next())
+     {
 
+     QString grup = quer.value(0).toString();
+     ui->comboBox_2->addItem(grup+"\n");
 
-     QSqlQuery quer;
-       quer.exec("SELECT grup,student FROM lite5");
-
-      while (quer.next())
-       {
-
-       QString grup = quer.value(0).toString();
-       QString student = quer.value(1).toString();
-       ui->comboBox_2->addItem(grup);
-       ui->comboBox_3->addItem(student);
-      }
-
-   }
+    }
+}
 
 MainWindow::~MainWindow()
 {
@@ -122,7 +87,7 @@ MainWindow::~MainWindow()
 }
 
 
-void MainWindow::on_pushButton_clicked()
+void MainWindow::on_pushButton_clicked()//Генерация заявления, загрузка основного текста из файла
 {
     //Комбобоксы
     QString text = ui->comboBox->currentText();
@@ -140,11 +105,10 @@ void MainWindow::on_pushButton_clicked()
           return; // если это сделать невозможно, то завершаем функцию
       data2 = file.readAll(); //считываем все данные с файла в объект data
       QString text4=QString(data2).arg(text).arg(text2).arg(text3).arg( date1).arg(text5).arg( QDate::currentDate().toString("dd.MM.yyyy"));;
-      ui->textEdit->setFont(QFont("Times new roman",14));
       ui->textEdit->setHtml(text4);
 }
 
-void MainWindow::on_pushButton_3_clicked()
+void MainWindow::on_pushButton_3_clicked()//Генерация заявления, загрузка основного текста из файла
 {
     //Комбобоксы
     QString text = ui->comboBox->currentText();
@@ -164,7 +128,7 @@ void MainWindow::on_pushButton_3_clicked()
 
 }
 
-void MainWindow::on_pushButton_4_clicked()
+void MainWindow::on_pushButton_4_clicked()//Генерация заявления, загрузка основного текста из файла
 {
     //Комбобоксы
     QString text = ui->comboBox->currentText();
@@ -184,7 +148,7 @@ void MainWindow::on_pushButton_4_clicked()
           ui->textEdit->setHtml(text5);
 }
 
-void MainWindow::on_pushButton_5_clicked()
+void MainWindow::on_pushButton_5_clicked()//Генерация заявления, загрузка основного текста из файла
 {
     //Комбобоксы
     QString text = ui->comboBox->currentText();
@@ -203,7 +167,7 @@ void MainWindow::on_pushButton_5_clicked()
           ui->textEdit->setHtml(text5);
 }
 
-void MainWindow::on_pushButton_6_clicked()
+void MainWindow::on_pushButton_6_clicked()//Генерация заявления, загрузка основного текста из файла
 {
     //Комбобоксы
     QString text = ui->comboBox->currentText();
@@ -223,7 +187,7 @@ void MainWindow::on_pushButton_6_clicked()
           ui->textEdit->setHtml(text5);
 }
 
-void MainWindow::on_pushButton_7_clicked()
+void MainWindow::on_pushButton_7_clicked()//Генерация заявления, загрузка основного текста из файла
 {
     //Комбобоксы
     QString text = ui->comboBox->currentText();
@@ -244,20 +208,20 @@ void MainWindow::on_pushButton_7_clicked()
 }
 
 
-void MainWindow::on_comboBox_8_currentIndexChanged(int index2)
+void MainWindow::on_comboBox_8_currentIndexChanged(int index2) //Стэк виджет  для смены инфы
 {
 
        ui->stackedWidget->setCurrentIndex(index2);
 }
 
-void MainWindow::on_comboBox_9_currentIndexChanged(int index )
+void MainWindow::on_comboBox_9_currentIndexChanged(int index )//Стэк виджет  для смены инфы
 {
      ui->stackedWidget_2->setCurrentIndex(index);
 
 }
 
 
-void MainWindow::on_comboBox_2_currentIndexChanged(int index)
+void MainWindow::on_comboBox_2_currentIndexChanged(int index)// comboBox с значениями групп и, в зависимости от которого выбираются студенты в следующий comboBox
 {
     switch (index) {
     case 0:{
@@ -316,11 +280,119 @@ void MainWindow::on_comboBox_2_currentIndexChanged(int index)
           ui->comboBox_3->addItem(grup+"\n");}}
         break;
 
+    case 5:{
+        ui->comboBox_3->clear();
+        //Осуществляем запрос
+        QSqlQuery quer;
+          quer.exec("SELECT num,student FROM lite6  WHERE num = 6");
+
+         while (quer.next())
+          {
+           QString student = quer.value(1).toString();
+           ui->comboBox_3->addItem(student);}}
+        break;
+
     case 6:{
         ui->comboBox_3->clear();
         //Осуществляем запрос
         QSqlQuery quer;
-          quer.exec("SELECT grup,student FROM lite5");
+          quer.exec("SELECT num,student FROM lite6  WHERE num = 7");
+
+         while (quer.next())
+          {
+           QString student = quer.value(1).toString();
+           ui->comboBox_3->addItem(student);}}
+        break;
+
+    case 7:{
+        ui->comboBox_3->clear();
+        //Осуществляем запрос
+        QSqlQuery quer;
+          quer.exec("SELECT num,student FROM lite6  WHERE num = 8");
+
+         while (quer.next())
+          {
+           QString student = quer.value(1).toString();
+           ui->comboBox_3->addItem(student);}}
+        break;
+
+    case 8:{
+        ui->comboBox_3->clear();
+        //Осуществляем запрос
+        QSqlQuery quer;
+          quer.exec("SELECT num,student FROM lite6  WHERE num = 9");
+
+         while (quer.next())
+          {
+           QString student = quer.value(1).toString();
+           ui->comboBox_3->addItem(student);}}
+        break;
+
+    case 9:{
+        ui->comboBox_3->clear();
+        //Осуществляем запрос
+        QSqlQuery quer;
+          quer.exec("SELECT num,student FROM lite6  WHERE num = 10");
+
+         while (quer.next())
+          {
+           QString student = quer.value(1).toString();
+           ui->comboBox_3->addItem(student);}}
+        break;
+
+    case 10:{
+        ui->comboBox_3->clear();
+        //Осуществляем запрос
+        QSqlQuery quer;
+          quer.exec("SELECT num,student FROM lite6  WHERE num = 11");
+
+         while (quer.next())
+          {
+           QString student = quer.value(1).toString();
+           ui->comboBox_3->addItem(student);}}
+        break;
+
+    case 11:{
+        ui->comboBox_3->clear();
+        //Осуществляем запрос
+        QSqlQuery quer;
+          quer.exec("SELECT num,student FROM lite6  WHERE num = 12");
+
+         while (quer.next())
+          {
+           QString student = quer.value(1).toString();
+           ui->comboBox_3->addItem(student);}}
+        break;
+
+    case 12:{
+        ui->comboBox_3->clear();
+        //Осуществляем запрос
+        QSqlQuery quer;
+          quer.exec("SELECT num,student FROM lite6  WHERE num = 13");
+
+         while (quer.next())
+          {
+           QString student = quer.value(1).toString();
+           ui->comboBox_3->addItem(student);}}
+        break;
+
+    case 13:{
+        ui->comboBox_3->clear();
+        //Осуществляем запрос
+        QSqlQuery quer;
+          quer.exec("SELECT num,student FROM lite6  WHERE num = 14");
+
+         while (quer.next())
+          {
+           QString student = quer.value(1).toString();
+           ui->comboBox_3->addItem(student);}}
+        break;
+
+    case 14:{
+        ui->comboBox_3->clear();
+        //Осуществляем запрос
+        QSqlQuery quer;
+          quer.exec("SELECT num,student FROM lite6  WHERE num = 15");
 
          while (quer.next())
           {
@@ -331,8 +403,7 @@ void MainWindow::on_comboBox_2_currentIndexChanged(int index)
 }
 
 
-
-void MainWindow::on_pushButton_2_clicked()
+void MainWindow::on_pushButton_2_clicked()//Открытие документа в Word
 {
 
         QString fileName = QFileDialog::getSaveFileName(this, tr("Save File"), "Zaiavlenie.rtf",tr("Images (*.rtf)"));
@@ -344,20 +415,11 @@ void MainWindow::on_pushButton_2_clicked()
             }
             setWindowTitle(fileName);
             QTextStream out(&file);
-
             out.setCodec("UTF-8");
-
-
-     ui->textEdit->setFont(QFont("Times new roman",14));
-
-  QString text = ui->textEdit->toHtml();
-
-      out << text;
-      file.close();
-
-
+            QString text = ui->textEdit->toHtml();
+            out << text;
+            file.close();
 }
-
 
 void MainWindow::on_textEdit_textChanged()
 {
@@ -365,7 +427,7 @@ void MainWindow::on_textEdit_textChanged()
      ui->textEdit->setFont(QFont("Times new roman",14));
 }
 
-void MainWindow::on_pushButton_8_clicked()
+void MainWindow::on_pushButton_8_clicked()//Вывод на печать
 {
 #if QT_CONFIG(printer)
     QPrinter printDev;
@@ -381,32 +443,69 @@ void MainWindow::on_pushButton_8_clicked()
 
 
 
-
-void MainWindow::on_pushButton_10_clicked()
+void MainWindow::on_pushButton_10_clicked()//Загрузка номера и студента в БД
 {
-    QString grup=ui->lineEdit->text();
+
     QString student=ui->lineEdit_2->text();
+    QString num =ui->lineEdit_3->text();
 
     QSqlDatabase db;
     db = QSqlDatabase::addDatabase("QSQLITE");
     db.setDatabaseName("lite2.db");
     db.open();
 
-    QSqlQuery query;
-    query.exec("INSERT INTO lite5 (grup,student) VALUES('"+grup+"','"+student+"')");
+     QSqlQuery que;
+     que.exec("INSERT INTO lite6 (num,student) VALUES('"+num+"','"+student+"')");
+     qDebug()<<"Query executed"<<endl;
+
+
+     QSqlQuery ques;
+       ques.exec("SELECT num,student FROM lite6");
+
+      while (ques.next())
+       {
+         QString num = ques.value(0).toString();
+         QString student = ques.value(1).toString();
+         ui->comboBox_3->addItem(student);
+      }
+
+      QMessageBox::warning(this, "Просьба", "Перезайдите в программу пожалуйста");
+      return;
+
+}
+
+void MainWindow::on_pushButton_9_clicked()//Подсказка
+{
+    QMessageBox::information(this, "Подсказка", "Пример - РФ19ДР62ПИ \n\r Введённая Вами группа появится выше в - Выберите группу ");
+    return;
+}
+
+void MainWindow::on_pushButton_11_clicked()//Подсказка
+{
+    QMessageBox::information(this, "Подсказка", "Посмотрите список выше- Выберите группу и \n\r Продолжите аналогию: \n\r РФ19ДР62ПИ - 1 \n\r РФ19ДР62ИиИТО- 2 \n\r РФ18ДР62ПИ - 3 \n\r РФ18ДР62ИиИТО - 4 \n\r РФ17ДР62ПИ - 5");
+    return;
+}
+
+void MainWindow::on_pushButton_12_clicked()//Подсказка
+{
+    QMessageBox::information(this, "Подсказка", "Введённая Вами группа появится выше в - Выберите студента ");
+    return;
+}
+
+void MainWindow::on_pushButton_13_clicked()//Загрузка группы в БД
+{
+    QString grup=ui->lineEdit->text();
+    QSqlQuery que;
+    que.exec("INSERT INTO lite5 (grup) VALUES('"+grup+"')");
     qDebug()<<"Query executed"<<endl;
 
 
+
     QSqlQuery quer;
-      quer.exec("SELECT grup,student FROM lite5");
+      quer.exec("SELECT grup FROM lite5");
 
      while (quer.next())
       {
-
-
-      QString grup = quer.value(0).toString();
-      QString student = quer.value(1).toString();
-      ui->comboBox_2->addItem(grup);
-      ui->comboBox_3->addItem(student);
-     }
+          QString grup = quer.value(0).toString();
+      }
 }

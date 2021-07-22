@@ -841,8 +841,8 @@ border-image: url(:/new/prefix1/images/p14.png);</string>
    <widget class="QLineEdit" name="lineEdit">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>310</y>
+      <x>20</x>
+      <y>340</y>
       <width>291</width>
       <height>21</height>
      </rect>
@@ -857,10 +857,10 @@ border-image: url(:/new/prefix1/images/p14.png);</string>
    <widget class="QPushButton" name="pushButton_10">
     <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>400</y>
-      <width>181</width>
-      <height>51</height>
+      <x>70</x>
+      <y>520</y>
+      <width>191</width>
+      <height>41</height>
      </rect>
     </property>
     <property name="font">
@@ -875,14 +875,14 @@ border-image: url(:/new/prefix1/images/p14.png);</string>
      <string notr="true">border-image: url(:/new/prefix1/images/15.png);</string>
     </property>
     <property name="text">
-     <string>Загрузить</string>
+     <string>Загрузить данные</string>
     </property>
    </widget>
    <widget class="QLineEdit" name="lineEdit_2">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>370</y>
+      <x>20</x>
+      <y>500</y>
       <width>291</width>
       <height>20</height>
      </rect>
@@ -897,7 +897,7 @@ border-image: url(:/new/prefix1/images/p14.png);</string>
    <widget class="QLabel" name="label_16">
     <property name="geometry">
      <rect>
-      <x>40</x>
+      <x>20</x>
       <y>220</y>
       <width>291</width>
       <height>41</height>
@@ -919,8 +919,8 @@ border-image: url(:/new/prefix1/images/p14.png);</string>
    <widget class="QLabel" name="label_17">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>330</y>
+      <x>20</x>
+      <y>460</y>
       <width>291</width>
       <height>41</height>
      </rect>
@@ -935,14 +935,14 @@ border-image: url(:/new/prefix1/images/p14.png);</string>
      <string notr="true">border-image: url(:/new/prefix1/images/p7.jpg);</string>
     </property>
     <property name="text">
-     <string>         Введите студента :</string>
+     <string>         Введите ФИО студента :</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_18">
     <property name="geometry">
      <rect>
-      <x>40</x>
-      <y>270</y>
+      <x>20</x>
+      <y>300</y>
       <width>291</width>
       <height>41</height>
      </rect>
@@ -957,11 +957,148 @@ border-image: url(:/new/prefix1/images/p14.png);</string>
      <string notr="true">border-image: url(:/new/prefix1/images/p7.jpg);</string>
     </property>
     <property name="text">
-     <string>          Введите группу :</string>
+     <string>          Введите группу 1 раз</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_19">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>260</y>
+      <width>401</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Times New Roman</family>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/new/prefix1/images/but.png);</string>
+    </property>
+    <property name="text">
+     <string>     Воспользуйтесь подсказками нажав   на :</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_9">
+    <property name="geometry">
+     <rect>
+      <x>310</x>
+      <y>300</y>
+      <width>61</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Times New Roman</family>
+      <pointsize>20</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/new/prefix1/images/star2.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_21">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>400</y>
+      <width>291</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Times New Roman</family>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/new/prefix1/images/p7.jpg);</string>
+    </property>
+    <property name="text">
+     <string>        Введите №(только цифру)</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit_3">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>440</y>
+      <width>291</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Times New Roman</family>
+      <pointsize>14</pointsize>
+     </font>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_11">
+    <property name="geometry">
+     <rect>
+      <x>310</x>
+      <y>400</y>
+      <width>61</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/new/prefix1/images/star2.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_12">
+    <property name="geometry">
+     <rect>
+      <x>310</x>
+      <y>460</y>
+      <width>61</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/new/prefix1/images/star2.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_13">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>360</y>
+      <width>201</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Times New Roman</family>
+      <pointsize>14</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/new/prefix1/images/15.png);</string>
+    </property>
+    <property name="text">
+     <string>Загрузить группу</string>
     </property>
    </widget>
    <zorder>label</zorder>
-   <zorder>textEdit</zorder>
    <zorder>comboBox</zorder>
    <zorder>comboBox_2</zorder>
    <zorder>label_2</zorder>
@@ -986,6 +1123,14 @@ border-image: url(:/new/prefix1/images/p14.png);</string>
    <zorder>label_16</zorder>
    <zorder>label_17</zorder>
    <zorder>label_18</zorder>
+   <zorder>label_19</zorder>
+   <zorder>pushButton_9</zorder>
+   <zorder>label_21</zorder>
+   <zorder>lineEdit_3</zorder>
+   <zorder>pushButton_11</zorder>
+   <zorder>pushButton_12</zorder>
+   <zorder>textEdit</zorder>
+   <zorder>pushButton_13</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">

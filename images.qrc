@@ -14,5 +14,8 @@
         <file>images/p14.png</file>
         <file>images/15.png</file>
         <file>images/p7.jpg</file>
+        <file>images/but.png</file>
+        <file>images/star.png</file>
+        <file>images/star2.png</file>
     </qresource>
 </RCC>
