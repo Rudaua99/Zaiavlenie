@@ -469,7 +469,7 @@ void MainWindow::on_pushButton_10_clicked()//Загрузка номера и с
          ui->comboBox_3->addItem(student);
       }
 
-      QMessageBox::warning(this, "Просьба", "Перезайдите в программу пожалуйста");
+      QMessageBox::warning(this, "Просьба", "Данные загружены.\n\r Перезайдите в программу пожалуйста.");
       return;
 
 }
@@ -482,7 +482,7 @@ void MainWindow::on_pushButton_9_clicked()//Подсказка
 
 void MainWindow::on_pushButton_11_clicked()//Подсказка
 {
-    QMessageBox::information(this, "Подсказка", "Посмотрите список выше- Выберите группу и \n\r Продолжите аналогию: \n\r РФ19ДР62ПИ - 1 \n\r РФ19ДР62ИиИТО- 2 \n\r РФ18ДР62ПИ - 3 \n\r РФ18ДР62ИиИТО - 4 \n\r РФ17ДР62ПИ - 5");
+    QMessageBox::information(this, "Подсказка", "Введите уникальный номер для всех студентов -№6 для одной введённой группы, у последующей группы студенты под №7 \n\r Продолжите аналогию: \n\r РФ19ДР62ПИ - 1 \n\r РФ19ДР62ИиИТО- 2 \n\r РФ18ДР62ПИ - 3 \n\r РФ18ДР62ИиИТО - 4 \n\r РФ17ДР62ПИ - 5");
     return;
 }
 
@@ -508,4 +508,6 @@ void MainWindow::on_pushButton_13_clicked()//Загрузка группы в Б
       {
           QString grup = quer.value(0).toString();
       }
+     QMessageBox::information(this, "Информация", "Группа загружена");
+     return;
 }
